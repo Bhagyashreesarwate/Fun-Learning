@@ -1,0 +1,105 @@
+*::before,
+*::after {
+    box-sizing: border-box;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: normal;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    background: linear-gradient(to right, #f54af5, #f7c478);
+}
+
+.heading {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: bold;
+    color: rgb(250, 248, 243);
+    text-align: center;
+    font-size: 50px;
+}
+
+.instruction {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: bold;
+    color: rgb(250, 248, 243);
+    text-align: center;
+    font-size: 35px;
+}
+
+.calculator-grid {
+    display: inline-block;
+    font-size: 40px;
+    text-align: center;
+    min-height: 9vh;
+    grid-template-columns: repeat(4, 100px);
+    grid-template-rows: minmax(120px, auto) repeat(5, 100px);
+    border: 2px solid darkgray;
+    border-radius: 15px;
+    background-color: rgb(216, 182, 221);
+    width: 144px;
+    margin: auto;
+    outline: none;
+}
+
+.main {
+    color: rgb(126, 4, 126);
+    display: inline-block;
+    font-variant-numeric: initial;
+    font-size: 40px;
+    text-align: center;
+    min-height: 9vh;
+    grid-template-columns: repeat(4, 100px);
+    grid-template-rows: minmax(120px, auto) repeat(5, 100px);
+    border: 2px solid darkgray;
+    border-radius: 15px;
+    background-color: rgb(216, 182, 221);
+    width: 144px;
+    margin: auto;
+    outline: none;
+}
+
+.answerBox {
+    color: rgba(194, 68, 4, 0.671);
+    display: inline-block;
+    font-variant-numeric: initial;
+    font-size: 40px;
+    text-align: center;
+    min-height: 9vh;
+    grid-template-columns: repeat(4, 100px);
+    grid-template-rows: minmax(120px, auto) repeat(5, 100px);
+    border: 2px solid darkgray;
+    border-radius: 15px;
+    background-color: rgb(216, 182, 221);
+    width: 144px;
+    margin: auto;
+    outline: none;
+}
+
+.modal {
+    display: none;
+    text-align: center;
+    padding: 11px;
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    width: 77%;
+    font-weight: bold;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 40px;
+    border: 2px solid black;
+    border-radius: 15px;
+    background-color: rgb(252, 252, 252);
+    overflow: auto;
+}
+
+#close {
+    /* display: none; */
+    float: right;
+    color: black;
+    cursor: pointer;
+}
+
+#close:hover {
+    color: rgb(155, 153, 153);
+}
