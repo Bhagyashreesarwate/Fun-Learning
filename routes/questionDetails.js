@@ -1,11 +1,11 @@
 const express = require('express')
-const questionDetail = require('../models/questionDetail')
 const router = express.Router()
+const QuestionDetail = require('../models/questionDetail')
 
 
 router.get('/', async(req, res) => {
     try {
-        const questionDetails = await questionDetail.find()
+        const questionDetails = await QuestionDetail.find()
         res.json(questionDetails)
     } catch (err) {
         res.status(500).json({ message: err.message })
@@ -13,6 +13,7 @@ router.get('/', async(req, res) => {
 })
 
 router.post('/', async(req, res) => {
+    console.log('got post request : ' + JSON.stringify(req.body))
     const questionDetail = new QuestionDetail({
         QuestionAttempted: req.body.QuestionAttempted,
         correctIncorrectStatus: req.body.correctIncorrectStatus,
@@ -22,7 +23,9 @@ router.post('/', async(req, res) => {
         timeStamp: req.body.timeStamp
     })
     try {
-        const newQuestionDetail = await questionDetail.save()
+        console.log('saving to mongodb')
+        const newQuestionDetail = await questionDetail.save(function() {})
+        console.log('saved to mongodb')
         res.status(201).json(newQuestionDetail)
     } catch (err) {
         res.status(400).json({ message: err.message })

@@ -1,1 +1,13 @@
-GET http://localhost:3000/questionDetails
+GET  http://localhost:3000/questionDetails
+
+###
+
+POST http://localhost:3000/questionDetails
+Content-Type: application/json
+{
+     "QuestionAttempted": "questionAttempted",
+                "correctIncorrectStatus": "correctIncorrectStatus",
+                "TimeTaken": "TimeTaken",
+                "userId": "userId",
+                "machineId": "machineId"
+}

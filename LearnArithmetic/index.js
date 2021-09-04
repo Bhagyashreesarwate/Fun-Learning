@@ -169,6 +169,7 @@ function answerTimerHandler() {
 
             span.onclick = function() {
                 modal.style.display = "none";
+                logStatistics()
                 startNewQuestion();
             }
         }, 200)
@@ -179,6 +180,7 @@ function answerTimerHandler() {
     if (currentQA.currentPosition >= currentQA.randomAnswerSequnce.length - 1) {
         console.log("last option question over")
         alert("You did not select any option!")
+        logStatistics()
         startNewQuestion()
         return true
     }
@@ -199,8 +201,34 @@ function resetTimer() {
     if (answerTimer) {
         answerTimer.reset()
     } else {
-        console.log(" resetTimer: timer not set")
+        console.log("resetTimer: timer not set")
     }
+}
+
+function logStatistics() {
+    console.log('started fetch')
+    const url = 'http://localhost:3000/questionDetails'
+
+
+    fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                QuestionAttempted: 'questionAttempted',
+                correctIncorrectStatus: 'correctIncorrectStatus',
+                TimeTaken: 'TimeTaken',
+                userId: 'userId',
+                machineId: 'machineId'
+            })
+        }).then(res => {
+            return res.json
+        })
+        .then(data => { console.log(data) })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
 }
 
 function generateRandomSequence(numberInList) {
@@ -264,6 +292,7 @@ function modalBox() {
 
         span.onclick = function() {
             modal.style.display = "none";
+            logStatistics()
             startNewQuestion()
         }
 
@@ -273,6 +302,7 @@ function modalBox() {
 
         span.onclick = function() {
             modal.style.display = "none";
+            logStatistics()
             startNewQuestion()
         }
 
